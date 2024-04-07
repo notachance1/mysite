@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "Lobster";
+    src: url(Lobster-Regular.ttf);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Lobster", sans-serif;
+}
+
+header,
+footer {
+    background-color: steelblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    color: aliceblue;
+}
+
+.title {
+    text-transform: capitalize;
+    font-size: 38px;
+}
+
+.logo {
+    animation: logoAnimation 1s linear infinite alternate;
+}
+
+main {
+    flex: auto;
+    padding: 20px 40px;
+}
+
+@keyframes logoAnimation {
+    0% {
+        transform: rotate(-30deg);
+    }
+
+    40% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(30deg);
+    }
+}
+
+.game {
+    width: min-content;
+    background-color: steelblue;
+    color: aliceblue;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: default;
+
+    &:hover img {
+        filter: brightness(1.2);
+    }
+
+    &:hover {
+        box-shadow: 3px 3px 10px #00000055;
+    }
+
+    & img {
+        border-radius: 5px;
+    }
+
+    & button {
+        margin-top: 20px;
+        padding: 10px 0;
+        width: 100%;
+        border-radius: 5px;
+        border: none;
+
+        &:hover {
+            background-color: steelblue;
+            color: aliceblue;
+            filter: brightness(1.2) cursor: pointer;
+        }
+
+        &:active {
+
+            filter: brightness(1);
+        }
+    }
+}
+
+#games {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+nav {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: steelblue;
+    height: 100%;
+    width: 300px;
+    border-left: solid 1px #3c6f99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 0 80px;
+    box-sizing: border-box;
+}
+
+nav label {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    cursor: pointer;
+    font-size: 23px;
+    padding: 10px;
+    background-color: aliceblue;
+    color: steelblue;
+}
+
+nav a:hover {
+    background-color: #3c6f99;
+    color: aliceblue;
+}
+
+nav {
+    gap: 10px;
+    transform: translate(300px, 0);
+    z-index: 100;
+}
+body {
+    overflow-x: hidden;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.menu {
+    font-size: 23px;
+}
+
+#menu:checked ~ nav {
+    transform: translate(0, 0); 
+}
+
+nav {
+    transition: all .1s linear;
+}
